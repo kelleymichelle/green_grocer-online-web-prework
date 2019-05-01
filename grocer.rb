@@ -1,15 +1,17 @@
 require 'pry'
 def consolidate_cart(cart)
   cart.each do |item|
-    item[:count] = 1
+    things = item.keys
+    #binding.pry
+    item[:count] = 0
     item.each do |item_key, item_values|
-      if item.include? item_key
+      if things.include? item_key
         item[:count] += 1
-    binding.pry
+    #binding.pry
       end
     end
-  end.uniq
-  #binding.pry
+  end
+  cart.uniq
 end
 
 def apply_coupons(cart, coupons)
