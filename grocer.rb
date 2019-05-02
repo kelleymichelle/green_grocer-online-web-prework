@@ -17,7 +17,7 @@ end
 def apply_coupons(cart, coupons)
 
   cart.each do |item, data|
-    #cart[item] = data
+    
     coupons.each do |coupon|
       
       x = cart[item][:count] - coupon[:num]
@@ -25,7 +25,7 @@ def apply_coupons(cart, coupons)
       price = coupon[:cost]
       
       thing = coupon[:item]
-      
+      binding.pry
       cart["#{thing} W/ COUPON"] = {}
       binding.pry
       if coupon.value? item
