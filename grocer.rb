@@ -19,8 +19,8 @@ new_cart = {}
   cart.each do |item, data|
     new_cart[item] = data
     coupons.each do |coupon|
-      
-      x = cart[item][:count] / coupon[:num]
+      x = coupons.count
+      #x = cart[item][:count] / coupon[:num]
       xx = cart[item][:count] % coupon[:num]
       price = coupon[:cost]
       thing = coupon[:item]
@@ -37,6 +37,7 @@ new_cart = {}
     end
   end
   cart = new_cart
+  binding.pry
   return cart
 end
 
