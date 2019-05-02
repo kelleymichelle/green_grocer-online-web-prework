@@ -15,40 +15,29 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-
+new_cart = {}
   cart.each do |item, data|
-    
+    new_cart[item] = data
     coupons.each do |coupon|
       
-      x = cart[item][:count] - coupon[:num]
-      
+      x = cart[item][:count] / coupon[:num]
+      xx = cart[item][:count] % coupon[:num]
       price = coupon[:cost]
-      
       thing = coupon[:item]
-      binding.pry
-      cart["#{thing} W/ COUPON"] = {}
-      binding.pry
+      y = cart[item][:clearance]
+      #binding.pry
       if coupon.value? item
-        # cart["#{item} W/ COUPON"] = {}
-          cart["#{item} W/ COUPON"][:price] = price
-        binding.pry
-      if cart[item][:clearance] == true
-        cart["#{item} W/COUPON"][:clearance] = true
-        binding.pry
-      else !cart[item][:clearance]
-        cart["#{item} W/COUPON"][:clearance] = false
-        binding.pry
-      
-      cart["#{item} W/ COUPON"][:count] = x
-      
-  binding.pry
-            
-        
-        end
+        new_cart["#{item} W/COUPON"] = {}
+          new_cart["#{item} W/COUPON"][:price] = price
+          new_cart["#{item} W/COUPON"][:clearance] = y
+          new_cart["#{item} W/COUPON"][:count] = x
+          new_cart[item][:count] = xx
+  #binding.pry
       end
     end
   end
-  cart
+  cart = new_cart
+  return cart
 end
 
 def apply_clearance(cart)
