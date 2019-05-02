@@ -19,25 +19,30 @@ new_cart = {}
   cart.each do |item, data|
     new_cart[item] = data
     coupons.each do |coupon|
-      x = coupons.count
+      #x = coupons.count
       #x = cart[item][:count] / coupon[:num]
-      xx = cart[item][:count] % coupon[:num]
+      updated_price = cart[item][:count] % coupon[:num]
       price = coupon[:cost]
-      thing = coupon[:item]
+      #thing = coupon[:item]
       y = cart[item][:clearance]
       #binding.pry
-      if coupon.value? item
+      
+      if new_cart["#{item} W/COUPON"]
+        new_cart["#{item} W/COUPON"][:count] += 1
+      #   binding.pry
+      elsif coupon.value? item
         new_cart["#{item} W/COUPON"] = {}
           new_cart["#{item} W/COUPON"][:price] = price
           new_cart["#{item} W/COUPON"][:clearance] = y
-          new_cart["#{item} W/COUPON"][:count] = x
-          new_cart[item][:count] = xx
+          new_cart["#{item} W/COUPON"][:count] = 1
+          new_cart[item][:count] = updated_price
+      
   #binding.pry
       end
     end
   end
   cart = new_cart
-  binding.pry
+  #binding.pry
   return cart
 end
 
