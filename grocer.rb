@@ -22,24 +22,18 @@ new_cart = {}
       updated_count = cart[item][:count] % coupon[:num]
       price = coupon[:cost]
       y = cart[item][:clearance]
-      #binding.pry
       
       if new_cart["#{item} W/COUPON"] && coupon.value?(item)
         new_cart["#{item} W/COUPON"][:count] += 1
-         #binding.pry
       elsif coupon.value? item
         new_cart["#{item} W/COUPON"] = {}
           new_cart["#{item} W/COUPON"][:price] = price
           new_cart["#{item} W/COUPON"][:clearance] = y
           new_cart["#{item} W/COUPON"][:count] = 1
           new_cart[item][:count] = updated_count
-      
-  #binding.pry
       end
     end
   end
-  #cart = new_cart
-  #binding.pry
   return new_cart
 end
 
@@ -54,5 +48,25 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
+  cart.each do |items, nothing|
+    items.each do |item, data|
+ #binding.pry
+  consolidate_cart(cart)
+  #binding.pry
+  if cart.length == 1
+    return items[item][:price]
+    
+    apply_coupons(cart, coupons)
   
+  
+  #binding.pry
+      end
+    end
+  end 
 end
+
+
+
+
+
+
