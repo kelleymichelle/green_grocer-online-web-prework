@@ -57,7 +57,7 @@ def checkout(cart, coupons)
   
   
   #binding.pry
-  
+    end
   end 
 end
 
