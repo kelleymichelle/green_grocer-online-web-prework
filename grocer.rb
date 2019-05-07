@@ -52,12 +52,12 @@ def checkout(cart, coupons)
     item.each do |item, data|
  
   consolidate_cart(cart)
-  binding.pry
+  #binding.pry
   if cart.length == 1
     return cart[item][:price]
   
   
-  binding.pry
+  #binding.pry
       end
     end
   end 
