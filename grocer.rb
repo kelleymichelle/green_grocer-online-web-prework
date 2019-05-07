@@ -54,7 +54,7 @@ def checkout(cart, coupons)
   consolidate_cart(cart)
   #binding.pry
   if cart.length == 1
-    return items[item][:price]
+    items[item][:price]
     
     apply_coupons(cart, coupons)
   
