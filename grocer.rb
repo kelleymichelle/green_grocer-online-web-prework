@@ -51,7 +51,7 @@ def checkout(cart, coupons)
   cart.each do |item, data|
  
   consolidate_cart(cart)
-  
+  binding.pry
   if cart.length == 1
     return cart[item][:price]
   
