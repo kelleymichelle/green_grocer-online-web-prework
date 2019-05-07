@@ -55,6 +55,8 @@ def checkout(cart, coupons)
   #binding.pry
   if cart.length == 1
     return items[item][:price]
+    
+    apply_coupons(cart, coupons)
   
   
   #binding.pry
