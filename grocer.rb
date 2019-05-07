@@ -49,6 +49,7 @@ end
 
 def checkout(cart, coupons)
   cart.each do |item, data|
+    item.each do |a, b|
  
   consolidate_cart(cart)
   binding.pry
