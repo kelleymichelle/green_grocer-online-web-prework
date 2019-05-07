@@ -52,6 +52,9 @@ def checkout(cart, coupons)
  
   consolidate_cart(cart)
   
+  if cart.length == 1
+    cart[item][:price]
+  
   
   binding.pry
   
