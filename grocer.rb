@@ -48,8 +48,8 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  cart.each do |item, data|
-    item.each do |a, b|
+  cart.each do |items, nothing|
+    item.each do |item, data|
  
   consolidate_cart(cart)
   binding.pry
