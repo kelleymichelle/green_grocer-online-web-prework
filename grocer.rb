@@ -56,7 +56,7 @@ def checkout(cart, coupons)
     return cart[item][:price]
   
   
-  #binding.pry
+  binding.pry
     end
   end 
 end
